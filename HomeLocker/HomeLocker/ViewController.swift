@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -19,7 +20,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func openDoor(sender: UIButton) {
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        
+        Alamofire.request(.POST, "http://114.34.167.81/index.php", parameters: ["code" : "366"], encoding: .URL, headers: headers).response {request, response, data, error in
+            print(request)
+            print(response)
+            print(data)
+            print(error)
+        }
+    }
 }
 

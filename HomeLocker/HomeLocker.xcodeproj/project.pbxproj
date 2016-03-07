@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21DEE784CE1A86D5494C7D95 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85C882C394E3A3E0D8CD51 /* Pods.framework */; };
 		51802ECF1C5BC752007482AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51802ECE1C5BC752007482AA /* AppDelegate.swift */; };
 		51802ED11C5BC752007482AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51802ED01C5BC752007482AA /* ViewController.swift */; };
 		51802ED41C5BC752007482AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51802ED21C5BC752007482AA /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E85C882C394E3A3E0D8CD51 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51802ECB1C5BC752007482AA /* HomeLocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeLocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51802ECE1C5BC752007482AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51802ED01C5BC752007482AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		51802EEA1C5BC752007482AA /* HomeLockerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeLockerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51802EEE1C5BC752007482AA /* HomeLockerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLockerUITests.swift; sourceTree = "<group>"; };
 		51802EF01C5BC752007482AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2F6DB94A25B0B24A384D02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		866765753DE29307312222A6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DEE784CE1A86D5494C7D95 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +86,8 @@
 				51802EE21C5BC752007482AA /* HomeLockerTests */,
 				51802EED1C5BC752007482AA /* HomeLockerUITests */,
 				51802ECC1C5BC752007482AA /* Products */,
+				707876ECFED417432884F4DE /* Pods */,
+				913E50A7D916A793768854C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +132,23 @@
 			path = HomeLockerUITests;
 			sourceTree = "<group>";
 		};
+		707876ECFED417432884F4DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F2F6DB94A25B0B24A384D02 /* Pods.debug.xcconfig */,
+				866765753DE29307312222A6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		913E50A7D916A793768854C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E85C882C394E3A3E0D8CD51 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51802EF31C5BC752007482AA /* Build configuration list for PBXNativeTarget "HomeLocker" */;
 			buildPhases = (
+				6A52DC637BAABC657E8A85DC /* Check Pods Manifest.lock */,
 				51802EC71C5BC752007482AA /* Sources */,
 				51802EC81C5BC752007482AA /* Frameworks */,
 				51802EC91C5BC752007482AA /* Resources */,
+				D4DC5652DDEF194108AC3426 /* Embed Pods Frameworks */,
+				09C72D5BEF52F16B49270D6E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +220,15 @@
 				TargetAttributes = {
 					51802ECA1C5BC752007482AA = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = R7NQ7WM4P5;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					51802EDE1C5BC752007482AA = {
 						CreatedOnToolsVersion = 7.2;
@@ -250,6 +286,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09C72D5BEF52F16B49270D6E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A52DC637BAABC657E8A85DC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D4DC5652DDEF194108AC3426 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51802EC71C5BC752007482AA /* Sources */ = {
@@ -397,23 +481,31 @@
 		};
 		51802EF41C5BC752007482AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2F6DB94A25B0B24A384D02 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HomeLocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shih.HomeLocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		51802EF51C5BC752007482AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 866765753DE29307312222A6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HomeLocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shih.HomeLocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -484,6 +576,7 @@
 				51802EF51C5BC752007482AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51802EF61C5BC752007482AA /* Build configuration list for PBXNativeTarget "HomeLockerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +585,7 @@
 				51802EF81C5BC752007482AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51802EF91C5BC752007482AA /* Build configuration list for PBXNativeTarget "HomeLockerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +594,7 @@
 				51802EFB1C5BC752007482AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
