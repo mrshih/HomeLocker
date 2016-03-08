@@ -82,8 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         
         let notification: UILocalNotification = UILocalNotification()
-        notification.alertBody = "開始判斷強弱..."
-        UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+        //notification.alertBody = "開始判斷強弱..."
+        //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
         
         if beacons.count > 0 {
             //
@@ -102,21 +102,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 if nextSec < 30 {
                     var str = NSString(format: "%.0f", nextSec)
                     notification.alertBody = "進入感應區：\(str)秒後開鎖"
-                    UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                    //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 }else {
                     //notification.alertBody = "不開鎖 間隔過短"
                     //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 }
             }else if adjust <= now {
-                userDefault.setDouble(now, forKey: "lastUnlock")
                 let test:CLBeacon = beacons[0]
-                if(test.rssi < 50 ){
+                if(test.rssi > -70 ){
                     self.openRequest()
+                    userDefault.setDouble(now, forKey: "lastUnlock")
                     notification.alertBody = "開鎖～距離近  didRangeBeacons\(test.rssi)"
-                }else if(test.rssi >= 50){
+                    UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                }else if(test.rssi <= -70){
                     notification.alertBody = "不開鎖～距離遠  didRangeBeacons\(test.rssi)"
+                    UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 }
-                UIApplication .sharedApplication().presentLocalNotificationNow(notification);
             }
         }
     }
@@ -138,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             if state == CLRegionState.Inside {
                 print("You're inside the region")
                 notification.alertBody = "You're inside the region"
-                UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 //
                 locationManager.startRangingBeaconsInRegion(beaconRegion!)
                 //
@@ -146,7 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             else if state == CLRegionState.Outside {
                 print("You're outside the region")
                 notification.alertBody = "You're outside the region"
-                UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 locationManager.stopRangingBeaconsInRegion(beaconRegion!)
             }
             else {
