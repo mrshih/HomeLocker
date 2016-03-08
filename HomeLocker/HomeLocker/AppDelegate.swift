@@ -9,16 +9,21 @@
 import UIKit
 import CoreLocation
 import Alamofire
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
-
+    
     var window: UIWindow?
     var locationManager: CLLocationManager!
     var beaconRegion: CLBeaconRegion?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        Fabric.with([Crashlytics.self])
+
         //let categories = Set<UIUserNotificationCategory>(arrayLiteral: restartGameCategory)
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
@@ -109,8 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 }
             }else if adjust <= now {
                 let test:CLBeacon = beacons[0]
-                if(test.rssi > -70 ){
-                    self.openRequest()
+                if(test.rssi > -70 && test.rssi != 0){
+                    //self.openRequest()
                     userDefault.setDouble(now, forKey: "lastUnlock")
                     notification.alertBody = "開鎖～距離近  didRangeBeacons\(test.rssi)"
                     UIApplication .sharedApplication().presentLocalNotificationNow(notification);
