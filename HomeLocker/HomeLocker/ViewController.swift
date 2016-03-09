@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
-        Alamofire.request(.POST, "http://114.34.167.81/index.php", parameters: ["code" : "366"], encoding: .URL, headers: headers).response {request, response, data, error in
+        Alamofire.request(.POST, "http://114.34.167.81/doorHistory.php", parameters: ["code" : "123"], encoding: .URL, headers: headers).response {request, response, data, error in
             print(request)
             print(response)
             print(data)

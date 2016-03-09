@@ -116,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }else if adjust <= now {
                 let test:CLBeacon = beacons[0]
                 if(test.rssi > -70 && test.rssi != 0){
-                    //self.openRequest()
+                    self.openRequest()
                     userDefault.setDouble(now, forKey: "lastUnlock")
                     notification.alertBody = "開鎖～距離近  didRangeBeacons\(test.rssi)"
                     UIApplication .sharedApplication().presentLocalNotificationNow(notification);
@@ -181,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
-        Alamofire.request(.POST, "http://114.34.167.81/doorHistory.php", parameters: ["code" : "1234"], encoding: .URL, headers: headers).response {request, response, data, error in
+        Alamofire.request(.POST, "http://114.34.167.81/doorHistory.php", parameters: ["code" : "123"], encoding: .URL, headers: headers).response {request, response, data, error in
             print(request)
             print(response)
             print(data)
