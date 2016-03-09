@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func startScanning() {
         
         //let uuid = (UUIDString: "90C9B34F-52FE-00F4-EF58-14BFB68AF033")
+        //beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "FDA50693-A4E2-4FB1-AFCF-C6EB07647825")!, major: 6, minor: 6, identifier:"Door" )
         beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")!, major: 20541, minor: 10392, identifier:"Door" )
         beaconRegion!.notifyEntryStateOnDisplay = true
         
@@ -144,7 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             if state == CLRegionState.Inside {
                 print("You're inside the region")
                 notification.alertBody = "You're inside the region"
-                //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 //
                 locationManager.startRangingBeaconsInRegion(beaconRegion!)
                 //
@@ -152,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             else if state == CLRegionState.Outside {
                 print("You're outside the region")
                 notification.alertBody = "You're outside the region"
-                //UIApplication .sharedApplication().presentLocalNotificationNow(notification);
+                UIApplication .sharedApplication().presentLocalNotificationNow(notification);
                 locationManager.stopRangingBeaconsInRegion(beaconRegion!)
             }
             else {
@@ -180,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             "Content-Type": "application/x-www-form-urlencoded"
         ]
         
-        Alamofire.request(.POST, "http://114.34.167.81/index.php", parameters: ["code" : "366"], encoding: .URL, headers: headers).response {request, response, data, error in
+        Alamofire.request(.POST, "http://114.34.167.81/doorHistory.php", parameters: ["code" : "1234"], encoding: .URL, headers: headers).response {request, response, data, error in
             print(request)
             print(response)
             print(data)
